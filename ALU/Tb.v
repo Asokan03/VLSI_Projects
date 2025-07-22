@@ -8,7 +8,7 @@ module alu_16op_tb;
     wire [15:0] alu_out;
 
     // Instantiate with default parameters
-    alu_16op uut (
+    alu_16op dut (
         .a_in(a_in),
         .b_in(b_in),
         .command_in(command_in),
@@ -24,21 +24,21 @@ module alu_16op_tb;
 
         // Arithmetic tests
         a_in = 8'd15; b_in = 8'd10;
-        command_in = uut.CMD_ADD;  #10;
-        command_in = uut.CMD_SUB;  #10;
-        command_in = uut.CMD_MUL;  #10;
-        command_in = uut.CMD_DIV;  #10;
-        command_in = uut.CMD_MOD;  #10;
+        command_in = dut.CMD_ADD;  #10;
+        command_in = dut.CMD_SUB;  #10;
+        command_in = dut.CMD_MUL;  #10;
+        command_in = dut.CMD_DIV;  #10;
+        command_in = dut.CMD_MOD;  #10;
 
         // Logic tests
-        command_in = uut.CMD_AND;  #10;
-        command_in = uut.CMD_OR;   #10;
-        command_in = uut.CMD_XOR;  #10;
-        command_in = uut.CMD_NOT;  #10;
-        command_in = uut.CMD_LSH;  #10;
+        command_in = dut.CMD_AND;  #10;
+        command_in = dut.CMD_OR;   #10;
+        command_in = dut.CMD_XOR;  #10;
+        command_in = dut.CMD_NOT;  #10;
+        command_in = dut.CMD_LSH;  #10;
 
         // Output disable test
-        oe = 0; command_in = uut.CMD_ADD; #10;
+        oe = 0; command_in = dut.CMD_ADD; #10;
 
         $finish;
     end
